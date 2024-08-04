@@ -18,6 +18,5 @@ export function renderImages(imagesData) {
         `;
     })
     .join('');
-  imagesList.innerHTML = '';
   imagesList.insertAdjacentHTML('beforeend', markUp);
 }
