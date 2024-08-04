@@ -5,9 +5,12 @@ import 'izitoast/dist/css/iziToast.min.css';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-const searchField = document.querySelector('.search-field');
-const submitBtn = document.querySelector('.search-btn');
+const form = document.querySelector('.search-form');
 const loader = document.querySelector('.loader');
+const lightbox = new SimpleLightbox('.images-list a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+});
 
 let searchParam = {
   key: '45237174-16156409efac0dde2d7dc0545',
@@ -25,18 +28,17 @@ const iziOptions = {
   progressBar: false,
 };
 
-searchField.addEventListener('input', event => {
-  searchParam.q = event.target.value.trim();
-});
-
-submitBtn.addEventListener('click', event => {
+form.addEventListener('submit', event => {
   event.preventDefault();
-  searchField.value = '';
+
+  searchParam.q = event.target.elements.search_key.value.trim();
+  event.target.elements.search_key.value = '';
 
   if (searchParam.q === null || searchParam.q === '') {
     iziToast.show(iziOptions);
     return;
   }
+  
   loader.style.display = 'block';
   searchingRequest(new URLSearchParams(searchParam))
     .then(imagesData => {
@@ -49,12 +51,9 @@ submitBtn.addEventListener('click', event => {
       renderImages(imagesData);
 
       loader.style.display = 'none';
-      const lightbox = new SimpleLightbox('.images-list a', {
-        captionsData: 'alt',
-        captionDelay: 250,
-      });
-      lightbox.refresh();
+
       lightbox.on('show.simplelightbox', function () {});
+      lightbox.refresh();
     })
     .catch(error => console.log(error));
 });

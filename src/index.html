@@ -8,17 +8,17 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <div class="search">
+    <form class="search-form">
       <input
-        class="search-field"
-        type="search"
+        class="search-input"
+        name="search_key"
+        type="text"
         placeholder="Search images..."
       />
       <button class="search-btn" type="submit">Search</button>
-      <div class="loader" style="display: none;"></div>      
-    </div>
+      <div class="loader" style="display: none"></div>
+    </form>
 
-    
     <ul class="images-list"></ul>
 
     <script type="module" src="./main.js"></script>

@@ -5,7 +5,7 @@ export function renderImages(imagesData) {
       return `
         <li class="images-item">
             <a href="${image.largeImageURL}">
-                <img src="${image.webformatURL}" alt="${image.tags}" width=360 height=152>
+                <img src="${image.webformatURL}" alt="${image.tags}" width=360 height=202>
             </a>
 
             <div class="images-titels">
@@ -18,6 +18,6 @@ export function renderImages(imagesData) {
         `;
     })
     .join('');
-  imagesList.innerHTML = "";
+  imagesList.innerHTML = '';
   imagesList.insertAdjacentHTML('beforeend', markUp);
 }

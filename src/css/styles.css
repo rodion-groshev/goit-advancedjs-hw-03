@@ -16,14 +16,14 @@ p {
   color: black;
 }
 
-.search {
+.search-form {
   display: flex;
   gap: 8px;
   justify-content: center;
   padding-top: 36px;  
 }
 
-.search-field {
+.search-input {
   min-width: 272px;  
   font-family: "Montserrat";
   font-size: 16px;
@@ -65,13 +65,15 @@ p {
   padding: 0;  
   display: grid;
   grid-template-columns: 360px 360px 360px 360px;
-  grid-template-rows: 200px 200px 200px 200px;
+  grid-template-rows: 250px 250px 250px 250px;
   grid-gap: 24px;
   margin-top: 32px;
 }
 
 .images-item { 
   border: 1px solid #808080;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .images-titels {
